@@ -14,8 +14,8 @@ import { useDebounce } from "use-debounce";
 
 function App() {
   const [title, setTitle] = useState("");
-  const [rate, setRate] = useState(50);
-  const [apiDelay, setApiDelay] = useState(30);
+  const [rate, setRate] = useState(20);
+  const [apiDelay, setApiDelay] = useState(50);
   const [debouncedTitle] = useDebounce(title, (rate + apiDelay) * 10);
   const [helperText, setHelperText] = useState(false);
 
@@ -65,7 +65,7 @@ function App() {
               to test out the experience. "Debounce" is the non-allowed phrase.
             </Type>
           </Stack>
-          <Spread>
+          <Spread items={3} gap={20}>
             <Stack>
               <Type fontStyle="BodySemi14">Debounce rate</Type>
               <Spread>
@@ -74,7 +74,7 @@ function App() {
                   min="0"
                   max="100"
                   value={rate}
-                  onChange={(e) => setRate(e.target.value)}
+                  onChange={(e) => setRate(Number(e.target.value))}
                 />
                 <Type fontStyle="BodyReg12">{rate * 10}ms</Type>
               </Spread>
@@ -87,10 +87,14 @@ function App() {
                   min="0"
                   max="100"
                   value={apiDelay}
-                  onChange={(e) => setApiDelay(e.target.value)}
+                  onChange={(e) => setApiDelay(Number(e.target.value))}
                 />
                 <Type fontStyle="BodyReg12">{apiDelay * 10}ms</Type>
               </Spread>
+            </Stack>
+            <Stack gap={0}>
+              <Type fontStyle="BodySemi14">Total delay</Type>
+              <Type fontStyle="HeadingBold24">{(rate + apiDelay) * 10}</Type>
             </Stack>
           </Spread>
           <Input
