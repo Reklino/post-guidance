@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/post-guidance/static/css/main.073c9b0a.css",
-    "main.js": "/post-guidance/static/js/main.16cd2538.js",
+    "main.css": "/post-guidance/static/css/main.e6c13ad2.css",
+    "main.js": "/post-guidance/static/js/main.18f71264.js",
     "static/js/787.b4bc999a.chunk.js": "/post-guidance/static/js/787.b4bc999a.chunk.js",
     "static/media/blobfish.gif": "/post-guidance/static/media/blobfish.fd586b4a69d9e2a14e3b.gif",
     "static/media/icon_topic_other.svg": "/post-guidance/static/media/icon_topic_other.b2a4c22e4f2da536e54f29b863c064c1.svg",
@@ -645,12 +645,12 @@
     "static/media/icon_add_fill.svg": "/post-guidance/static/media/icon_add_fill.ff4ff04a1b2039227b9619b031969b5f.svg",
     "static/media/icon_subtract.svg": "/post-guidance/static/media/icon_subtract.9228f8a6e593ff1b4c5f22339ad26abe.svg",
     "static/media/icon_subtract_fill.svg": "/post-guidance/static/media/icon_subtract_fill.24761ff40486d77bc8e089e8cc9baa56.svg",
-    "main.073c9b0a.css.map": "/post-guidance/static/css/main.073c9b0a.css.map",
-    "main.16cd2538.js.map": "/post-guidance/static/js/main.16cd2538.js.map",
+    "main.e6c13ad2.css.map": "/post-guidance/static/css/main.e6c13ad2.css.map",
+    "main.18f71264.js.map": "/post-guidance/static/js/main.18f71264.js.map",
     "787.b4bc999a.chunk.js.map": "/post-guidance/static/js/787.b4bc999a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.16cd2538.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.18f71264.js"
   ]
 }
