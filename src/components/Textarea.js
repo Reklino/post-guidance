@@ -9,7 +9,7 @@ import Stack from "./Stack";
 import Flex from "./Flex";
 import { getGuidanceMessage } from "../fn";
 
-export default function Input({
+export default function Textarea({
   onChange,
   placeholder = "Placeholder",
   label = "Label",
@@ -23,6 +23,7 @@ export default function Input({
   error = false,
   helperText = false,
   helperTexts = [],
+  onBlur,
 }) {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
@@ -45,11 +46,10 @@ export default function Input({
             inputRef.current.focus();
           }
         }}
-        onMouseDown={(e) => e.preventDefault()}
         css={css`
           ${mixins.constainerStyles.Large}
           ${mixins.fontStyles.BodyReg16}
-        height: ${tokens.size.live[innerLabel ? "3xl" : "2xl"]}px;
+          height: ${128}px;
           width: ${width};
           background-color: ${isFocused
             ? "var(--secondary-background-hover)"
@@ -83,7 +83,7 @@ export default function Input({
           `}
         >
           <Flex
-            align="center"
+            // align="center"
             customCss={css`
               position: absolute;
               opacity: ${isFocused || value !== "" ? 0 : 1};
@@ -112,12 +112,22 @@ export default function Input({
               {label}
             </Type>
           )}
-          <input
-            onMouseDown={(e) => e.stopPropagation()}
+          <textarea
+            defaultValue={value}
+            rows={4}
+            onChange={onChange}
+            placeholder={placeholder}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => {
+              setIsFocused(false);
+              onBlur();
+            }}
+            ref={inputRef}
             css={css`
               position: relative;
               z-index: 2;
               width: 100%;
+              resize: none;
               cursor: ${isFocused || value !== "" ? "text" : "pointer"};
               background-color: transparent;
               border: none;
@@ -136,13 +146,6 @@ export default function Input({
                 color: var(--interactive-content-disabled);
               }
             `}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            ref={inputRef}
-            type="text"
-            onChange={onChange}
-            value={value}
-            placeholder={placeholder}
           />
         </Stack>
       </div>
@@ -161,7 +164,7 @@ export default function Input({
               return [...acc, current];
             }, [])
             .map(
-              ({ message, title, action, caughtPhrases, phrases, logic }) => (
+              ({ message, title, action, phrases, caughtPhrases, logic }) => (
                 <Type
                   key={title}
                   color={
@@ -176,7 +179,7 @@ export default function Input({
                     caughtPhrases,
                     phrases,
                     logic,
-                    "title"
+                    "body"
                   )}
                 </Type>
               )
